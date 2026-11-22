@@ -42,7 +42,7 @@ h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:22px}
 .body{padding:24px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;align-items:center;min-height:78vh;padding-top:48px}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;min-height:84vh;padding-top:48px}
 .hero h1{font-size:clamp(2.4rem,6vw,4rem);letter-spacing:-.02em;margin-bottom:16px}
 .hero p{color:var(--muted);max-width:52ch}
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
@@ -50,14 +50,15 @@ h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:22px}
 .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.9)}
 .btn.main{background:#252930;border:0;color:#fff}
 .btn.main:hover{background:#3a4048}
-.stack{position:relative;height:340px}
-.stack .win{position:absolute;width:78%}
-.stack .w1{top:0;left:0;animation:float 7s ease-in-out infinite}
-.stack .w2{top:112px;right:0;animation:float 8s ease-in-out -2s infinite}
-.stack .w3{bottom:0;left:8%;animation:float 9s ease-in-out -4s infinite}
-.stack .body{padding:14px 18px;font-size:.92rem}
-.stack b{font-family:Fraunces,serif;font-size:1.05rem;font-weight:600;display:block}
-@keyframes float{50%{transform:translateY(-14px)}}
+.portrait{position:relative;width:100%;max-width:430px;margin:0 auto;padding:10px 0 20px}
+.frame{border-radius:30px}
+.frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+.chip{position:absolute;padding:10px 18px;border-radius:16px;font-size:.9rem;font-weight:600;white-space:nowrap;line-height:1.35}
+.chip small{display:block;font-weight:500;color:var(--muted);font-size:.76rem}
+.c1{top:9%;left:-16%;animation:float 7s ease-in-out infinite}
+.c2{bottom:24%;right:-14%;animation:float 8s ease-in-out -3s infinite}
+.c3{bottom:3%;left:-8%;animation:float 9s ease-in-out -5s infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
 
 /* grids */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
@@ -74,113 +75,4 @@ ul{padding-left:18px}
 .certs{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .posts{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
 .post summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;flex-direction:column;gap:4px;transition:background .2s}
-.post summary::-webkit-details-marker{display:none}
-.post summary:hover{background:rgba(255,255,255,.5)}
-.post summary span{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.15rem;line-height:1.3}
-.post summary small{color:var(--muted);font-size:.85rem}
-.post summary::after{content:"Read more";font-size:.85rem;font-weight:600;margin-top:8px}
-.post[open] summary::after{content:"Close"}
-.post[open] summary{border-bottom:1px solid var(--line)}
-.post .body p+p{margin-top:12px}
-.post .body strong{color:var(--ink)}
-.post .by{font-family:Fraunces,Georgia,serif;font-style:italic;text-align:right;color:var(--ink)}
-.about{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
-.about p+p{margin-top:14px}
-
-footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 20px 50px}
-
-@media(max-width:820px){
-  .hero,.about{grid-template-columns:1fr}
-  .hero{min-height:auto}
-  .stack{height:auto;display:grid;gap:14px}
-  .stack .win{position:static;width:100%;animation:none}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}}
-</style>
-</head>
-<body>
-
-<nav aria-label="Main">
-  <a href="#home">Home</a><a href="#about">About</a><a href="#certs">Certifications</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
-</nav>
-
-<main>
-<!-- HOME -->
-<section id="home" class="hero">
-  <div>
-    <h1>Hi, I'm Maria Sara George</h1>
-    <p>I'm an IMCA student at Rajagiri College, and I love the space where technology and business meet. I'm exploring cybersecurity, product management and business analysis, and I enjoy public speaking and anchoring events. Have a look around!</p>
-    <div class="btns">
-      <a class="btn main" href="#writing">Read my writing</a>
-      <a class="btn" href="#contact">Get in touch</a>
-    </div>
-  </div>
-  <div class="stack" aria-hidden="true">
-    <div class="win w1"><div class="bar"><i></i><i></i><i></i><span>studying.txt</span></div><div class="body"><b>Integrated MCA, 2025 to 2030</b>Rajagiri College</div></div>
-    <div class="win w2"><div class="bar"><i></i><i></i><i></i><span>focus.txt</span></div><div class="body"><b>Cybersecurity</b>Product Management, Business Analysis</div></div>
-    <div class="win w3"><div class="bar"><i></i><i></i><i></i><span>off-duty.txt</span></div><div class="body"><b>Public speaking</b>Event anchoring and leadership</div></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>About me</h2>
-  <div class="about">
-    <div class="win"><div class="bar"><i></i><i></i><i></i><span>about.md</span></div>
-      <div class="body">
-        <p>Hello! I'm pursuing an Integrated Master of Computer Applications (2025 to 2030) at Rajagiri College. I'm especially curious about cybersecurity, product management, business analysis and emerging technologies.</p>
-        <p>Outside the classroom, I'm always learning, and I care about leadership, problem-solving and communicating clearly. Public speaking and event anchoring are where I get to enjoy all of that together.</p>
-        <p>My goal is to lead where innovation meets strategy, turning good ideas into action and making a lasting impact along the way.</p>
-      </div></div>
-    <div class="win"><div class="bar"><i></i><i></i><i></i><span>skills.json</span></div>
-      <div class="body">
-        <h3>Technical</h3>
-        <div class="tags"><span>Cybersecurity</span><span>Networking</span><span>SQL</span><span>Python</span><span>Data Science</span><span>AI and ML</span></div>
-        <h3 style="margin-top:22px">Professional</h3>
-        <div class="tags"><span>Product Management</span><span>Business Analysis</span><span>Public Speaking</span><span>Event Anchoring</span><span>Leadership</span></div>
-      </div></div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <h2>Certifications</h2>
-  <div class="grid certs">
-<a class="win cert" href="CERTIFICATES/cert1.jpg" target="_blank" rel="noopener"><img src="CERTIFICATES/cert1.jpg" alt="Certificate: Cybersecurity Defense Analyst Pathway Exam" loading="lazy"><div class="body"><small>30 Aug 2026</small><h3>Cybersecurity Defense Analyst Pathway Exam</h3><p>Cisco Networking Academy</p></div></a>
-<a class="win cert" href="CERTIFICATES/cert2.jpg" target="_blank" rel="noopener"><img src="CERTIFICATES/cert2.jpg" alt="Certificate: Networking Basics" loading="lazy"><div class="body"><small>30 Aug 2026</small><h3>Networking Basics</h3><p>Cisco Networking Academy</p></div></a>
-<a class="win cert" href="CERTIFICATES/cert3.jpg" target="_blank" rel="noopener"><img src="CERTIFICATES/cert3.jpg" alt="Certificate: SQL (Advanced)" loading="lazy"><div class="body"><small>29 Aug 2026</small><h3>SQL (Advanced)</h3><p>HackerRank skill certification</p></div></a>
-<a class="win cert" href="CERTIFICATES/cert5.jpg" target="_blank" rel="noopener"><img src="CERTIFICATES/cert5.jpg" alt="Certificate: Foundations of Data Science, AI and Machine Learning" loading="lazy"><div class="body"><small>24 Feb 2026</small><h3>Foundations of Data Science, AI and Machine Learning</h3><p>Grant Thornton Bharat, with Rajagiri College of Social Sciences</p></div></a>
-<a class="win cert" href="CERTIFICATES/cert4.jpg" target="_blank" rel="noopener"><img src="CERTIFICATES/cert4.jpg" alt="Certificate: Data Science and AI (8-week course)" loading="lazy"><div class="body"><small>Oct 2024</small><h3>Data Science and AI (8-week course)</h3><p>IIT Madras CODE, School Connect</p></div></a>
-  </div>
-</section>
-
-<!-- WRITING -->
-<section id="writing">
-  <h2>Writing on technology</h2>
-  <div class="grid posts">
-<details class="win post"><summary><span>Critical Minerals: A Strategic Imperative for the Technology-Driven Future</span><small>Geopolitics and technology</small></summary><div class="body"><p>I recently came across a news article about BRICS leaders calling for reliable supply chains for critical minerals, and it made me think about how closely our technological future is tied to resources we rarely talk about.</p><p>We often discuss artificial intelligence, electric vehicles, renewable energy and advanced technologies, but these innovations depend on critical minerals such as lithium, cobalt, nickel and rare earth elements.</p><p>In my view, the importance of these minerals goes far beyond mining and trade. They are becoming a matter of economic resilience and geopolitical influence. A disruption in their supply can affect entire industries, making excessive dependence on a limited number of suppliers a strategic risk.</p><p>This is where I believe BRICS cooperation becomes significant. Building diversified and reliable supply chains can reduce vulnerabilities while creating opportunities for countries to strengthen their own technological capabilities.</p><p>For India, this should be viewed not merely as a resource challenge, but as a strategic opportunity. Along with securing access to critical minerals, India should focus on domestic exploration, processing, recycling and technological innovation.</p><p>The technology race of the future will not depend only on who develops the smartest technologies. It will also depend on who secures the resources required to build them.</p><p>That, to me, is why critical minerals deserve to be treated as a strategic priority rather than simply another commodity.</p><p class="by">Maria Sara George</p></div></details>
-<details class="win post"><summary><span>When Technology and Organization Move in the Same Direction</span><small>Research reflection</small></summary><div class="body"><p>While studying the research paper Organizational and Technological Infrastructures Alignment, I found myself thinking about a simple question: Does technology really create value if an organization is not ready to work with it?</p><p>The paper by Anne-Marie Croteau, Simona Solomon, Louis Raymond and François Bergeron examines the relationship between organizational infrastructure, technological infrastructure and business performance. The researchers argue that technology should not be developed independently of the organization. Instead, both should evolve together through what they describe as infrastructure co-alignment.</p><p>The organizational side includes factors such as common vision, cooperation, empowerment, adaptability and learning, while the technological side focuses on user involvement, connectivity, distributed computing, flexibility and technology awareness.</p><p>What particularly stood out to me is that the paper does not present technology as the solution by itself. A powerful technological system can still fail to create meaningful value if the people, processes and organizational structure are not aligned with it.</p><p>In my view, this is increasingly relevant today, especially as organizations adopt AI and other emerging technologies. Investing in technology without preparing people and processes can create complexity rather than progress.</p><p>The researchers studied 104 organizations and used Structural Equation Modeling to examine the relationship. Their findings showed a positive and significant relationship between infrastructure alignment and business performance, with alignment explaining 37% of the variance in the performance construct.</p><p>From my perspective, the strongest idea in this research is that digital transformation is fundamentally an organizational process, not merely a technological one. Technology may provide the capability, but people, leadership, communication and adaptability determine how effectively that capability is used.</p><p>The paper also acknowledges limitations, including its low response rate and the need for further research through case studies and improved research instruments.</p><p><strong>My takeaway.</strong> For me, this research changes the way I look at technology in organizations. The real question is not "How advanced is our technology?" but "How well does our organization align itself with what that technology can achieve?"</p><p>Because when technology and people move in different directions, even good technology can remain underutilized. But when strategy, people, processes and technology move together, technology becomes a driver of organizational growth rather than simply another investment.</p><p class="by">Maria Sara George</p></div></details>
-<details class="win post"><summary><span>Ethical Position on Cloning Technology</span><small>Ethics and science</small></summary><div class="body"><p>Today we'll talk about the ethical position on cloning technology. But before that: "The real question is not what we can do, but what we should do." This simple idea perfectly captures the ethical dilemma surrounding cloning technology.</p><p>Cloning, as a modern scientific advancement, has brought remarkable benefits, especially in agriculture and food production. It has helped increase crop yield, improve nutritional quality, and develop resistance to pests and diseases. These advantages play a crucial role in addressing global hunger and improving human welfare.</p><p>However, the use of cloning also raises serious concerns. There are potential risks to human health, including unknown side effects and allergies. Environmentally, cloning may reduce biodiversity, disturb ecosystems, and even lead to the extinction of natural species. Ethical issues such as interference with nature and animal welfare further complicate the debate.</p><p>From an outcome-based ethical perspective, the moral acceptability of cloning is determined by a careful evaluation of its overall impact. This involves weighing its potential benefits, such as enhanced food security and scientific advancement, against the possible risks, including environmental disruption, health uncertainties, and ethical concerns. In this framework, the justification for cloning rests on its ability to promote the greater good while minimizing harm, ensuring that its application contributes positively to society as a whole.</p><p>In this context, cloning cannot be labeled as entirely good or bad. It is ethically acceptable only if its benefits outweigh its risks. Therefore, a balanced and regulated approach is essential to ensure that cloning technology contributes positively to society without causing long-term harm.</p><p>In conclusion, cloning should be guided by ethical responsibility and careful evaluation of its consequences. Science must remain under human control, ensuring that it serves humanity rather than dominates it.</p><p class="by">Maria Sara George</p></div></details>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="win">
-    <div class="bar"><i></i><i></i><i></i><span>contact.sh</span></div>
-    <div class="body" style="text-align:center;padding:42px 24px">
-      <h2 style="margin-bottom:12px">Let's talk</h2>
-      <p style="margin:0 auto;max-width:50ch">I'd love to hear from you, whether it's about an internship, a collaboration, or a speaking or anchoring opportunity.</p>
-      <div class="btns" style="justify-content:center">
-        <a class="btn main" href="mailto:mariasarageorge7@gmail.com">Email me</a>
-        <a class="btn" href="https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BzBKXK45ETa%2BP6oSQQUF1Jw%3D%3D">LinkedIn</a>
-        <a class="btn" href="https://github.com/MariaSaraGeorge99">GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>© 2026 Maria Sara George</footer>
-</body>
-</html>
+.
