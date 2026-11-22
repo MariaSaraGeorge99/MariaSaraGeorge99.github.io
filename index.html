@@ -1,25 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maria Sara George | Portfolio</title>
+  <meta name="description" content="Maria Sara George - Integrated MCA student, professional anchor and public speaker.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial; max-width: 700px; margin: auto; padding: 20px; }
-    h1 { color: #2c3e50; }
-    .project { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    :root {
+      --navy: #14213d;
+      --gold: #c9a24d;
+      --text: #2b2f3a;
+      --muted: #6b7280;
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --line: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; color: var(--navy); }
+
+    /* Top menu */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--navy);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 6%;
+    }
+    nav .logo { color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 600; }
+    nav ul { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { color: #e8e8ee; text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+    nav a:hover { color: var(--gold); }
+
+    /* Top banner */
+    header {
+      background: linear-gradient(135deg, #14213d 0%, #22345c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 90px 6% 100px;
+    }
+    .avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: var(--gold); color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.4rem; font-weight: 700;
+      margin: 0 auto 24px;
+      border: 4px solid rgba(255,255,255,0.35);
+    }
+    header h1 { color: #fff; font-size: 2.8rem; margin-bottom: 10px; }
+    header .role { color: var(--gold); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 18px; }
+    header p.tagline { max-width: 640px; margin: 0 auto 30px; color: #d9dce6; }
+    .btn {
+      display: inline-block; padding: 12px 28px; border-radius: 30px;
+      background: var(--gold); color: var(--navy);
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    }
+    .btn:hover { background: #d8b45f; }
+
+    /* Sections */
+    section { max-width: 900px; margin: 0 auto; padding: 70px 6% 10px; }
+    section h2 { font-size: 1.9rem; margin-bottom: 8px; }
+    .line { width: 60px; height: 3px; background: var(--gold); margin-bottom: 28px; border-radius: 2px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 28px;
+      box-shadow: 0 4px 14px rgba(20, 33, 61, 0.05);
+    }
+    .card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .card .sub { color: var(--muted); font-size: 0.95rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .grid .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+    .contact-box { text-align: center; }
+    .contact-box a.email {
+      color: var(--navy); font-weight: 600; font-size: 1.1rem;
+      text-decoration: none; border-bottom: 2px solid var(--gold);
+    }
+
+    footer {
+      text-align: center; color: var(--muted);
+      font-size: 0.88rem; padding: 50px 6% 40px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.1rem; }
+      nav ul { gap: 14px; }
+      nav .logo { display: none; }
+      nav { justify-content: center; }
+    }
   </style>
 </head>
 <body>
-  <h1>Hi, I am Maria Sara George</h1>
-  <p>I am a student who loves Java and Python.</p>
 
-  <h2>My Projects</h2>
-  <div class="project">
-    <h3>Project One</h3>
-    <p>Short description of the project.</p>
-    <a href="https://github.com/MariaSaraGeorge99/project-one">View on GitHub</a>
-  </div>
+  <nav>
+    <div class="logo">Maria Sara George</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#focus">Focus Areas</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <h2>Contact</h2>
-  <p>Email: mariasarageorge7@gmail.com</p>
+  <header>
+    <div class="avatar">MS</div>
+    <h1>Maria Sara George</h1>
+    <div class="role">Integrated MCA Student &nbsp;|&nbsp; Professional Anchor &nbsp;|&nbsp; Public Speaker</div>
+    <p class="tagline">Passionate about evolving technology and business strategy, and exploring global opportunities.</p>
+    <a class="btn" href="#contact">Get in Touch</a>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="line"></div>
+    <div class="card">
+      <p>
+        I am Maria Sara George, currently pursuing an Integrated Master of Computer Applications.
+        I am passionate about evolving technology and business strategy, and I am exploring
+        global opportunities where I can learn, grow and contribute. Alongside my studies,
+        I work as a professional anchor and public speaker, which helps me communicate ideas
+        clearly and confidently.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="line"></div>
+    <div class="card">
+      <h3>Integrated Master of Computer Applications (MCA)</h3>
+      <div class="sub">Rajagiri College of Social Sciences</div>
+      <div class="sub">Currently pursuing</div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <h2>Focus Areas</h2>
+    <div class="line"></div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Evolving Technology</h3>
+        <p>Keeping up with new tools and trends in the world of computing.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Business Strategy</h3>
+        <p>Understanding how technology supports business growth and decisions.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>Global Opportunities</h3>
+        <p>Looking for chances to learn and work in an international setting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="speaking">
+    <h2>Anchoring &amp; Public Speaking</h2>
+    <div class="line"></div>
+    <div class="card">
+      <p>
+        As a professional anchor and public speaker, I enjoy connecting with an audience,
+        hosting events and sharing ideas with clarity and confidence. These skills help me
+        in teamwork, presentations and leadership.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="line"></div>
+    <div class="card contact-box">
+      <p style="margin-bottom:10px;">I would be happy to hear from you.</p>
+      <a class="email" href="mailto:mariasarageorge7@gmail.com">mariasarageorge7@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Maria Sara George. All rights reserved.
+  </footer>
+
 </body>
 </html>
