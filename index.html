@@ -7,18 +7,20 @@
   <meta name="description" content="Maria Sara George - Integrated MCA student, professional anchor and public speaker.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <style>
     :root {
+      --ink: #1b1530;
+      --text: #46415e;
+      --muted: #8a85a3;
       --purple: #7b2ff7;
-      --blue: #2575fc;
       --pink: #ff5fa2;
       --orange: #ff9f43;
+      --blue: #2575fc;
       --teal: #12c2a5;
-      --dark: #1d1b3a;
-      --text: #3a3856;
-      --muted: #7a7894;
-      --bg: #fbf9ff;
+      --bg: #fff8fc;
+      --grad: linear-gradient(120deg, #7b2ff7, #ff5fa2 60%, #ff9f43);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -26,324 +28,66 @@
       font-family: 'Poppins', Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.7;
+      line-height: 1.75;
+      overflow-x: hidden;
     }
-    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; color: var(--dark); }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; color: var(--ink); }
 
+    /* Soft colour shapes in the background */
+    .blob { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.45; z-index: -1; }
+    .b1 { width: 420px; height: 420px; background: #c9a7ff; top: -100px; left: -120px; }
+    .b2 { width: 380px; height: 380px; background: #ffb3d1; top: 35%; right: -140px; }
+    .b3 { width: 360px; height: 360px; background: #ffd9a8; bottom: -120px; left: 20%; }
+
+    /* Floating menu */
     nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 6%;
-      box-shadow: 0 2px 16px rgba(123,47,247,0.12);
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 50; width: min(94%, 760px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px 10px 22px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 40px;
+      box-shadow: 0 10px 30px rgba(123,47,247,0.15);
     }
     nav .logo {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700; font-size: 1.2rem;
-      background: linear-gradient(90deg, var(--purple), var(--pink));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 1.1rem;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+      white-space: nowrap;
     }
-    nav ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
-    nav a { color: var(--dark); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-    nav a:hover { color: var(--pink); }
+    nav ul { list-style: none; display: flex; gap: 4px; overflow-x: auto; }
+    nav ul::-webkit-scrollbar { display: none; }
+    nav a {
+      display: block; padding: 7px 14px; border-radius: 30px;
+      color: var(--ink); text-decoration: none; font-size: 0.85rem; font-weight: 500; white-space: nowrap;
+      transition: 0.25s;
+    }
+    nav a:hover { background: var(--grad); color: #fff; }
 
-    header {
-      position: relative; overflow: hidden;
-      background: linear-gradient(120deg, #7b2ff7, #2575fc, #12c2a5, #ff5fa2);
-      background-size: 300% 300%;
-      animation: move 14s ease infinite;
-      color: #fff; text-align: center;
-      padding: 90px 6% 110px;
+    /* Banner */
+    .hero {
+      min-height: 100vh;
+      max-width: 1100px; margin: 0 auto;
+      padding: 130px 6% 60px;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
     }
-    @keyframes move {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .hello {
+      display: inline-block; padding: 6px 18px; border-radius: 30px;
+      background: #fff; color: var(--purple); font-weight: 500; font-size: 0.9rem;
+      box-shadow: 0 6px 18px rgba(123,47,247,0.15); margin-bottom: 18px;
     }
-    header::before, header::after {
-      content: ""; position: absolute; border-radius: 50%;
-      background: rgba(255,255,255,0.15);
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.1; font-weight: 800; margin-bottom: 16px; }
+    .hero h1 span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p.lead { font-size: 1.05rem; max-width: 520px; margin-bottom: 22px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .tags span {
+      padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 500;
+      background: #fff; border: 1px solid #efe6ff; color: var(--ink);
     }
-    header::before { width: 260px; height: 260px; top: -90px; left: -70px; }
-    header::after { width: 320px; height: 320px; bottom: -140px; right: -90px; }
-    header > * { position: relative; z-index: 1; }
-
-    .avatar {
-      width: 120px; height: 120px; border-radius: 50%;
-      background: #fff; color: var(--purple);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.6rem; font-weight: 700;
-      margin: 0 auto 24px;
-      border: 5px solid rgba(255,255,255,0.5);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    header h1 { color: #fff; font-size: 3rem; margin-bottom: 10px; }
-    .role-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .role-tags span {
-      background: rgba(255,255,255,0.22);
-      border: 1px solid rgba(255,255,255,0.45);
-      padding: 6px 16px; border-radius: 30px;
-      font-size: 0.9rem; font-weight: 500;
-    }
-    header p.tagline { max-width: 620px; margin: 0 auto 30px; color: #fff; opacity: 0.95; }
+    .btns { display: flex; flex-wrap: wrap; gap: 14px; }
     .btn {
-      display: inline-block; padding: 13px 32px; border-radius: 30px;
-      background: #fff; color: var(--purple);
-      text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-      transition: transform 0.2s;
+      display: inline-block; padding: 13px 30px; border-radius: 40px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: 0.25s;
     }
-    .btn:hover { transform: translateY(-3px); }
-
-    section { max-width: 1000px; margin: 0 auto; padding: 70px 6% 10px; }
-    section h2 { font-size: 2rem; margin-bottom: 8px; }
-    .line {
-      width: 70px; height: 4px; border-radius: 3px; margin-bottom: 28px;
-      background: linear-gradient(90deg, var(--pink), var(--orange));
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 26px 28px;
-      box-shadow: 0 8px 26px rgba(123,47,247,0.10);
-      border-top: 5px solid var(--purple);
-    }
-    .card h3 { font-size: 1.2rem; margin-bottom: 4px; }
-    .sub { color: var(--muted); font-size: 0.95rem; }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
-    .grid .card { transition: transform 0.25s; }
-    .grid .card:hover { transform: translateY(-6px); }
-    .grid .card:nth-child(1) { border-top-color: var(--blue); }
-    .grid .card:nth-child(2) { border-top-color: var(--pink); }
-    .grid .card:nth-child(3) { border-top-color: var(--teal); }
-    .icon {
-      width: 54px; height: 54px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; margin-bottom: 12px;
-    }
-    .grid .card:nth-child(1) .icon { background: #e4eeff; }
-    .grid .card:nth-child(2) .icon { background: #ffe4f0; }
-    .grid .card:nth-child(3) .icon { background: #d9f7f1; }
-    .grid .card h3 { font-size: 1.1rem; margin-bottom: 6px; }
-
-    .speaking { border-top-color: var(--orange); }
-    .education { border-top-color: var(--blue); }
-
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
-    .cert {
-      background: #fff; border-radius: 18px; overflow: hidden;
-      box-shadow: 0 8px 26px rgba(123,47,247,0.10);
-      transition: transform 0.25s;
-    }
-    .cert:hover { transform: translateY(-6px); }
-    .cert .photo {
-      display: flex; align-items: center; justify-content: center;
-      aspect-ratio: 4 / 3;
-      background: linear-gradient(135deg, #ece3ff, #ffe6f1);
-      padding: 10px;
-    }
-    .cert .photo img {
-      max-width: 100%; max-height: 100%;
-      object-fit: contain; display: block;
-      border-radius: 6px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-    }
-    .cert .info { padding: 16px 20px 22px; border-top: 4px solid var(--pink); }
-    .cert:nth-child(2) .info { border-top-color: var(--teal); }
-    .cert:nth-child(3) .info { border-top-color: var(--orange); }
-    .cert:nth-child(4) .info { border-top-color: var(--blue); }
-    .cert:nth-child(5) .info { border-top-color: var(--purple); }
-    .cert h3 { font-size: 1.05rem; margin-bottom: 4px; }
-    .cert .by { font-weight: 500; font-size: 0.92rem; color: var(--text); }
-    .cert .date { color: var(--muted); font-size: 0.85rem; }
-    .hint { color: var(--muted); font-size: 0.88rem; margin-bottom: 18px; }
-
-    .contact-box { text-align: center; border-top-color: var(--pink); }
-    .contact-box a.email {
-      display: inline-block; margin-top: 6px;
-      padding: 12px 26px; border-radius: 30px;
-      background: linear-gradient(90deg, var(--purple), var(--pink));
-      color: #fff; text-decoration: none; font-weight: 600;
-      box-shadow: 0 8px 20px rgba(123,47,247,0.3);
-    }
-
-    footer {
-      text-align: center; color: var(--muted);
-      font-size: 0.88rem; padding: 50px 6% 40px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.2rem; }
-      nav ul { gap: 12px; }
-      nav .logo { display: none; }
-      nav { justify-content: center; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <div class="logo">Maria Sara George</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#focus">Focus</a></li>
-      <li><a href="#speaking">Speaking</a></li>
-      <li><a href="#certificates">Certificates</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <header>
-    <div class="avatar">MS</div>
-    <h1>Maria Sara George</h1>
-    <div class="role-tags">
-      <span>Integrated MCA Student</span>
-      <span>Professional Anchor</span>
-      <span>Public Speaker</span>
-    </div>
-    <p class="tagline">Passionate about evolving technology and business strategy, and exploring global opportunities.</p>
-    <a class="btn" href="#contact">Get in Touch</a>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="line"></div>
-    <div class="card">
-      <p>
-        I am Maria Sara George, currently pursuing an Integrated Master of Computer Applications.
-        I am passionate about evolving technology and business strategy, and I am exploring
-        global opportunities where I can learn, grow and contribute. Alongside my studies,
-        I work as a professional anchor and public speaker, which helps me communicate ideas
-        clearly and confidently.
-      </p>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <div class="line"></div>
-    <div class="card education">
-      <h3>Integrated Master of Computer Applications (MCA)</h3>
-      <div class="sub">Rajagiri College of Social Sciences</div>
-      <div class="sub">Currently pursuing</div>
-    </div>
-  </section>
-
-  <section id="focus">
-    <h2>Focus Areas</h2>
-    <div class="line"></div>
-    <div class="grid">
-      <div class="card">
-        <div class="icon">💻</div>
-        <h3>Evolving Technology</h3>
-        <p>Keeping up with new tools and trends in the world of computing.</p>
-      </div>
-      <div class="card">
-        <div class="icon">📈</div>
-        <h3>Business Strategy</h3>
-        <p>Understanding how technology supports business growth and decisions.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🌍</div>
-        <h3>Global Opportunities</h3>
-        <p>Looking for chances to learn and work in an international setting.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="speaking">
-    <h2>Anchoring &amp; Public Speaking</h2>
-    <div class="line"></div>
-    <div class="card speaking">
-      <p>
-        As a professional anchor and public speaker, I enjoy connecting with an audience,
-        hosting events and sharing ideas with clarity and confidence. These skills help me
-        in teamwork, presentations and leadership.
-      </p>
-    </div>
-  </section>
-
-  <section id="certificates">
-    <h2>Certifications</h2>
-    <div class="line"></div>
-    <p class="hint">Click any certificate to see it in full size.</p>
-    <div class="cert-grid">
-
-      <div class="cert">
-        <a class="photo" href="CERTIFICATES/cert1.jpg" target="_blank">
-          <img src="CERTIFICATES/cert1.jpg" alt="Cybersecurity Defense Analyst Pathway Exam certificate">
-        </a>
-        <div class="info">
-          <h3>Cybersecurity Defense Analyst Pathway Exam</h3>
-          <div class="by">Cisco Networking Academy</div>
-          <div class="date">30 August 2026</div>
-        </div>
-      </div>
-
-      <div class="cert">
-        <a class="photo" href="CERTIFICATES/cert2.jpg" target="_blank">
-          <img src="CERTIFICATES/cert2.jpg" alt="Networking Basics certificate">
-        </a>
-        <div class="info">
-          <h3>Networking Basics</h3>
-          <div class="by">Cisco Networking Academy</div>
-          <div class="date">30 August 2026</div>
-        </div>
-      </div>
-
-      <div class="cert">
-        <a class="photo" href="CERTIFICATES/cert3.jpg" target="_blank">
-          <img src="CERTIFICATES/cert3.jpg" alt="SQL Advanced certificate">
-        </a>
-        <div class="info">
-          <h3>SQL (Advanced)</h3>
-          <div class="by">HackerRank</div>
-          <div class="date">29 August 2026</div>
-        </div>
-      </div>
-
-      <div class="cert">
-        <a class="photo" href="CERTIFICATES/cert4.jpg" target="_blank">
-          <img src="CERTIFICATES/cert4.jpg" alt="Data Science and AI certificate">
-        </a>
-        <div class="info">
-          <h3>Data Science and AI</h3>
-          <div class="by">IIT Madras, Centre for Outreach and Digital Education</div>
-          <div class="date">October 2024</div>
-        </div>
-      </div>
-
-      <div class="cert">
-        <a class="photo" href="CERTIFICATES/cert5.jpg" target="_blank">
-          <img src="CERTIFICATES/cert5.jpg" alt="Foundations of Data Science, AI and Machine Learning certificate">
-        </a>
-        <div class="info">
-          <h3>Foundations of Data Science, AI &amp; Machine Learning</h3>
-          <div class="by">Grant Thornton Bharat, with Rajagiri College of Social Sciences</div>
-          <div class="date">24 February 2026</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="line"></div>
-    <div class="card contact-box">
-      <p style="margin-bottom:10px;">I would be happy to hear from you.</p>
-      <a class="email" href="mailto:mariasarageorge7@gmail.com">mariasarageorge7@gmail.com</a>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2026 Maria Sara George. All rights reserved.
-  </footer>
-
-</body>
-</html>
+    .btn.main { background: var(--grad); color: #fff; box-shadow: 0 10px 26px
